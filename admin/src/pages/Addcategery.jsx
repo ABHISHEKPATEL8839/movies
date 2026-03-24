@@ -13,14 +13,12 @@ const AddCategory = () => {
   useEffect(()=>{
     if(param.id){
       axios
-      .get(`http://localhost:3000/api/v1/category${param.id}`)
+      .get(`http://localhost:3000/api/v1/category/${param.id}`)
       .then(response=>{
-        // console.log(response.data)
         setCate(response.data.result)
       })
     }
   },[])
-
   let navigate = useNavigate();
   let CateFrm = useFormik({
     enableReinitialize : true,
@@ -30,7 +28,7 @@ const AddCategory = () => {
            axios
         .put(`http://localhost:3000/api/v1/category/${param.id}`, formData )
         .then(response=>{
-          navigate("/category/list")  
+          navigate("/catelist")  
         })
       }else{
 

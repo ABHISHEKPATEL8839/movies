@@ -31,7 +31,7 @@ const ListCategory = () => {
   let confDelete = ()=>{
     setPreLoader(true)
     axios
-    .delete(`${import.meta.env.VITE_API_URL}/category/${cate._id}`, {headers : {Authorization : localStorage.getItem("sseccanimda")}})
+    .delete(`http://localhost:3000/api/v1/category/${cate._id}`)
     .then(response=>{
       setPreLoader(false)
       setShow(false);
@@ -42,8 +42,8 @@ const ListCategory = () => {
   }
 
   let goToEdit = (obj)=>{
-    // console.log(obj)
-    navigate("/category/edit/"+obj._id)
+    console.log(obj)
+    navigate("/addcate"+obj._id)
   }
 
 
@@ -103,7 +103,7 @@ const ListCategory = () => {
                               </td>
                               <td>
                                 <button onClick={()=>askDelete(item)} className='btn btn-danger btn-sm'>
-                                  <i className='fa fa-trash'></i>
+                               <i class="fa fa-trash-o" aria-hidden="true"></i>
                                 </button>
                               </td>
                             </tr>

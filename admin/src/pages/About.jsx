@@ -56,23 +56,13 @@ const About = () => {
             <li class="sidebar-item">
               <a class="sidebar-link" href="./index.html" aria-expanded="false">
                 <i class="ti ti-atom"></i>
-                <span class="hide-menu">Dashboard</span>
+                <NavLink to='/' class="hide-menu">Dashboard</NavLink>
               </a>
             </li>
             {/* <!-- ---------------------------------- --> */}
             {/* <!-- Dashboard -->
             <!-- ---------------------------------- --> */}
-            <li class="sidebar-item">
-              <a class="sidebar-link justify-content-between" href="#" aria-expanded="false">
-                <div class="d-flex align-items-center gap-3">
-                  <span class="d-flex">
-                    <i class="ti ti-aperture"></i>
-                  </span>
-                  <span class="hide-menu">Analytical</span>
-                </div>
-
-              </a>
-            </li>
+            
            
 
 
@@ -118,7 +108,7 @@ const About = () => {
                   <span class="d-flex">
                     <i class="ti ti-layout-grid"></i>
                   </span>
-                  <span class="hide-menu">Front Pages</span>
+                  <span class="hide-menu">MOVIES</span>
                 </div>
 
               </a>
