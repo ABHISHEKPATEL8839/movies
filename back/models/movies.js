@@ -2,11 +2,12 @@ import mongoose from '../config/db.js'
 
 let movieSchema = mongoose.Schema({
     title : String,
-    categoryId : { type :  mongoose.Schema.Types.ObjectId, ref : "category"},
-    subcategoryId : {type : mongoose.Schema.Types.ObjectId, ref : "subcategory"},
-    OTT : String,
+    name:String,
+    categoryId : { type :  mongoose.Schema.Types.ObjectId, ref : "categery"},
     image : String,
-    detail : String,
+    cast : String,
+    Release:Date,
+        ott:String
 }, {timestamps : true})
 
 let movie = mongoose.model("movie", movieSchema);
