@@ -1,7 +1,11 @@
 import mongoose from "../config/db.js";
 
-let CateSchema = mongoose.Schema({
-    name : String,
-}, {timestamps : true})
-let Cate = mongoose.model("category", CateSchema);
+const categorySchema = new mongoose.Schema({
+  name: {
+    type: String,
+    required: true,
+  },
+});
+
+let Cate = mongoose.model('Category', categorySchema);
 export default Cate;

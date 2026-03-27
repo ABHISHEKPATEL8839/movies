@@ -1,5 +1,5 @@
 import express from 'express';
-import categery from '../Routes/CategeryRoute.js'
+import categery from './RatingRoute.js'
 import movies from './MovieRoute.js';
 import Rating from './RatingRoute.js';
 

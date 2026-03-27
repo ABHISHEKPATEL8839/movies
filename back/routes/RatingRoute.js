@@ -3,6 +3,6 @@ import {getRatings,addRating} from '../controllers/Rating.js'
 const router = express.Router();
 router.post("/add", addRating);
 
-router.get("/", getRatings);
+router.get("/all", getRatings);
 
 export default router

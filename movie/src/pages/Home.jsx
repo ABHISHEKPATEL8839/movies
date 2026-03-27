@@ -1,50 +1,48 @@
 import React from 'react'
-
+import Header from '../components/Header'
+import Footer from '../components/Footer'
 const Home = () => {
   return (
     <>
 
 
 
+<Header/>
 
 
 
-
-
-
-		
-      <section class="gallery-area section-gap" id="gallery">
+ <section class="gallery-area section-gap" id="gallery">
         <div class="container">
           <div class="row d-flex justify-content-center">
-            <div class="menu-content pb-60 col-lg-10">
+            <div class="menu-content  col-lg-10">
               <div class="title text-center">
-                <h1 class="mb-10">What kind of Coffee we serve for you</h1>
+                <h1 class="mb-10">What kind of movie see you</h1>
                 <p>Who are in extremely love with eco friendly system.</p>
               </div>
             </div>
           </div>
           <div class="row">
             <div class="col-lg-4">
-              <a href="img/g1.jpg" class="img-pop-home">
-                <img class="img-fluid" src="img/g1.jpg" alt="" />
+              <a href="https://static0.srcdn.com/wordpress/wp-content/uploads/2023/06/mv5boduwndnjyzctoduxny00zta2lwiyytetmdc5y2e5zjbmntmzxkeyxkfqcgdeqxvyode5nze3ote-_v1_fmjpg_ux1000_.jpg" class="img-pop-home">
+                <img class="img-fluid" src="https://static0.srcdn.com/wordpress/wp-content/uploads/2023/06/mv5boduwndnjyzctoduxny00zta2lwiyytetmdc5y2e5zjbmntmzxkeyxkfqcgdeqxvyode5nze3ote-_v1_fmjpg_ux1000_.jpg" alt="" />
               </a>
-              <a href="img/g2.jpg" class="img-pop-home">
-                <img class="img-fluid" src="img/g2.jpg" alt="" />
+              <a href="https://i.ytimg.com/vi/ng1oPIWepWo/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLAwzIQs4-g_2icnBJeE8o-Bxyr0Cg" class="img-pop-home">
+                <img class="img-fluid" src="https://i.ytimg.com/vi/ng1oPIWepWo/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLAwzIQs4-g_2icnBJeE8o-Bxyr0Cg" alt="" style={{width:"100%",height:"20%"}}/>
               </a>
             </div>
             <div class="col-lg-8">
-              <a href="img/g3.jpg" class="img-pop-home">
-                <img class="img-fluid" src="img/g3.jpg" alt="" />
+              <a href="https://filmfare.wwmindia.com/content/2025/may/must-watch-bollywood-movie-sholay.jpg" class="img-pop-home">
+                <img class="img-fluid" src="https://filmfare.wwmindia.com/content/2025/may/must-watch-bollywood-movie-sholay.jpg" alt="" style={{height:"30%",width:"100%"}} />
               </a>
               <div class="row">
                 <div class="col-lg-6">
-                  <a href="img/g4.jpg" class="img-pop-home">
-                    <img class="img-fluid" src="img/g4.jpg" alt="" />
+                  <a href="https://img.jagranjosh.com/images/2022/October/14102022/highest-grossing-films.jpg" class="img-pop-home">
+                    <img class="img-fluid" src="https://img.jagranjosh.com/images/2022/October/14102022/highest-grossing-films.jpg" alt="" style={{height:"100%"}}/>
                   </a>
                 </div>
                 <div class="col-lg-6">
-                  <a href="img/g5.jpg" class="img-pop-home">
-                    <img class="img-fluid" src="img/g5.jpg" alt="" />
+                  <a href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-ApPtU1tjiU6ULuDeNtu_HmUoWmEuax5TOQ&s" class="img-pop-home">
+                    <img class="img-fluid" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-ApPtU1tjiU6ULuDeNtu_HmUoWmEuax5TOQ&s" alt="" />
                   </a>
                 </div>
               </div>
@@ -52,15 +50,62 @@ const Home = () => {
           </div>
         </div>
       </section>
-      {/* <!-- End gallery Area -->
-			
-			<!-- Start review Area --> */}
-      <section class="review-area section-gap" id="review">
+
+		
+     
+  
+
+
+
+{/* ------------------------ */}
+ <section class="blog-area section-gap" id="blog">
         <div class="container">
           <div class="row d-flex justify-content-center">
             <div class="menu-content pb-60 col-lg-10">
               <div class="title text-center">
-                <h1 class="mb-10">What kind of Coffee we serve for you</h1>
+                <h1 class="mb-10">What kind of Coffee movie see you</h1>
+                <p>Who are in extremely love with eco friendly system.</p>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-6 col-md-6 single-blog">
+              <img class="img-fluid" src="img/b1.jpg" alt="" />
+              <ul class="post-tags">
+                <li><a href="#">Travel</a></li>
+                <li><a href="#">Life Style</a></li>
+              </ul>
+              <a href="#"><h4>Portable latest Fashion for young women</h4></a>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore  et dolore.
+              </p>
+              <p class="post-date">
+                31st January, 2018
+              </p>
+            </div>
+            <div class="col-lg-6 col-md-6 single-blog">
+              <img class="img-fluid" src="img/b2.jpg" alt="" />
+              <ul class="post-tags">
+                <li><a href="#">Travel</a></li>
+                <li><a href="#">Life Style</a></li>
+              </ul>
+              <a href="#"><h4>Portable latest Fashion for young women</h4></a>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore  et dolore.
+              </p>
+              <p class="post-date">
+                31st January, 2018
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+ <section class="review-area section-gap" id="review">
+        <div class="container">
+          <div class="row d-flex justify-content-center">
+            <div class="menu-content pb-60 col-lg-10">
+              <div class="title text-center">
+                <h1 class="mb-10">What kind of movie see you</h1>
                 <p>Who are in extremely love with eco friendly system.</p>
               </div>
             </div>
@@ -119,65 +164,13 @@ const Home = () => {
           </div>
         </div>
       </section>
-      {/* <!-- End review Area -->
-			
-			<!-- Start blog Area --> */}
-      <section class="blog-area section-gap" id="blog">
-        <div class="container">
-          <div class="row d-flex justify-content-center">
-            <div class="menu-content pb-60 col-lg-10">
-              <div class="title text-center">
-                <h1 class="mb-10">What kind of Coffee we serve for you</h1>
-                <p>Who are in extremely love with eco friendly system.</p>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-lg-6 col-md-6 single-blog">
-              <img class="img-fluid" src="img/b1.jpg" alt="" />
-              <ul class="post-tags">
-                <li><a href="#">Travel</a></li>
-                <li><a href="#">Life Style</a></li>
-              </ul>
-              <a href="#"><h4>Portable latest Fashion for young women</h4></a>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore  et dolore.
-              </p>
-              <p class="post-date">
-                31st January, 2018
-              </p>
-            </div>
-            <div class="col-lg-6 col-md-6 single-blog">
-              <img class="img-fluid" src="img/b2.jpg" alt="" />
-              <ul class="post-tags">
-                <li><a href="#">Travel</a></li>
-                <li><a href="#">Life Style</a></li>
-              </ul>
-              <a href="#"><h4>Portable latest Fashion for young women</h4></a>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore  et dolore.
-              </p>
-              <p class="post-date">
-                31st January, 2018
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-      {/* <!-- End blog Area --> */}
-
-
-      {/* <!-- start footer Area -->		 */}
 
 
 
 
 
 
-
-
-
-
+<Footer/>
 
 
 

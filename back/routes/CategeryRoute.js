@@ -1,18 +1,8 @@
 import express from 'express';
-import {SaveCategory, UpdateCategory, DeleteCategory, GetAllCategory, GetAllCategoryById,
-
-
-
-    
-} from '../controllers/cate.js'
+import {SaveCategory,  GetAllCategory} from '../controllers/cate.js'
 let routes = express.Router();
 
-routes.get("/", GetAllCategory);
-routes.get("/:id", GetAllCategoryById);
-
-
-routes.post("/", SaveCategory);
-routes.put("/:id", UpdateCategory);
-routes.delete("/:id", DeleteCategory);
+routes.get("/all", GetAllCategory);
+routes.post("/add", SaveCategory);
 
 export default routes;

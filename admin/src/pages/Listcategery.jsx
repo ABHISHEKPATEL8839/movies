@@ -18,7 +18,9 @@ const ListCategory = () => {
     axios
     .get("http://localhost:3000/api/v1/category")
     .then(response=>{
+      console.log(response.data)
       setAllCate(response.data.result);
+
     })
   },[])
 

@@ -28,7 +28,7 @@ const AddCategory = () => {
            axios
         .put(`http://localhost:3000/api/v1/category/${param.id}`, formData )
         .then(response=>{
-          navigate("/catelist")  
+          navigate("/addcate")  
         })
       }else{
 

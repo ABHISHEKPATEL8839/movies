@@ -1,16 +1,15 @@
-import ratings from "../models/Rating.js";
+import Rating from '../models/Rating.js';
 
-let addRating = (req, res) => {
-    const { movieName, rating } = req.body;
+ const addRating = async(req, res)=>{
+   let data = await Rating.create(req.body);
+   res.send({success:true, data});
+}
 
-    ratings.push({ movieName, rating });
+const getRatings = async(req, res)=>{
+   let data = await Rating.find()
+      .populate('movie')
+      .populate('user');
 
-    res.send("Rating Added");
-};
-
-let getRatings = async (req, res) => {
-    const data = await ratings.find();  
-
-    res.send(data);  
-};
+   res.send({success:true, data});
+}
 export {getRatings,addRating}

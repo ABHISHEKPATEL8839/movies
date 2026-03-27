@@ -26,7 +26,7 @@ const Addmovie = () => {
 
     useEffect(()=>{
     axios
-    .get(`http://localhost:3000/api/v1/movies`)
+    .get(`http://localhost:3000/api/v1/category`)
     .then(response=>{
      
       setAllCate(response.data.result);
@@ -66,7 +66,7 @@ const Addmovie = () => {
      }else{
 
        axios
-       .post(`http://localhost:3000/api/v1/movies/add`, formData)
+       .post(`http://localhost:3000/api/v1/movies`, formData)
        .then(response=>{
          navigate("/list")
         })
@@ -77,7 +77,7 @@ const Addmovie = () => {
   let getSubCateById = (cid)=>{
     
     axios
-    .get(`http://localhost:3000/api/v1/movies/add/${cid}`)
+    .get(`http://localhost:3000/api/v1/movies/${cid}`)
     .then(response=>{
       setAllSubCate(response.data.result);
     })
@@ -118,15 +118,15 @@ const Addmovie = () => {
                       </div>
                       <div className="my-4">
                         <label htmlFor="">Release</label>
-                        <input value={ProFrm.values.Release} name='Release' onChange={ProFrm.handleChange} type='date' className={'form-control col-3 '} />
+                        <input value={ProFrm.values.Release} name='Release' onChange={ProFrm.handleChange} type='text ' className={'form-control col-3 '} />
                       </div>
                       <div className="my-4">
                         <label htmlFor="">Category</label>
                         <select value={ProFrm.values.categoryId} className='form-control' name='categoryId' onChange={(e)=>{ProFrm.handleChange(e); getSubCateById(e.target.value)}}>
                           <option>Select</option>
-                          {/* {
+                          {
                             allCate.map(item=><option value={item._id}>{item.name}</option>)
-                          } */}
+                          }
                         </select>
                       </div>
                      
