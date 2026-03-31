@@ -1,111 +1,66 @@
-import { useState } from "react";
-
-function App() {
-  const [movies, setMovies] = useState([
-    {
-      id: 1,
-      name: "Pushpa 2",
-      rating: 8.5,
-      cast: "Allu Arjun, Rashmika",
-      ott: "Netflix",
-      releaseDate: "2025-01-15",
-      image:""
-    },
-    {
-      id: 2,
-      name: "Jawan",
-      rating: 9.0,
-      cast: "Shah Rukh Khan, Nayanthara",
-      ott: "Amazon Prime",
-      releaseDate: "2023-09-07"
-    }
-  ]);
-
-  const [form, setForm] = useState({
-    name: "",
-    rating: "",
-    cast: "",
-    ott: "",
-    releaseDate: ""
-  });
-
-  const handleChange = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
-  };
-
-  const addMovie = () => {
-    setMovies([...movies, { ...form, id: Date.now() }]);
-    setForm({
-      name: "",
-      rating: "",
-      cast: "",
-      ott: "",
-      releaseDate: ""
-    });
-  };
+import React from 'react'
+import { useState } from 'react';
+import MovieForm from './API';
+    
+    
+    function AdminPanel({ movies = [], onDelete, onSave, showToast }) {
+    
+    // function AdminPanel({ movies, onDelete, onSave, showToast }) {
+  const [tab, setTab] = useState("list");
+  const [editing, setEditing] = useState(null);
+  const avgRating = (movies.reduce((a, m) => a + m.rating, 0) / movies.length).toFixed(1);
 
   return (
-    <div className="container mt-5">
-      <h2 className="text-center mb-4">🎬 Movie Ranking System</h2>
-
-      {/* Form */}
-      <div className="card p-4 mb-4">
-        <h4>Add Movie</h4>
-        <div className="row">
-          <div className="col-md-4">
-            <input className="form-control mb-2" name="name" placeholder="Movie Name" value={form.name} onChange={handleChange}/>
-          </div>
-
-          <div className="col-md-2">
-            <input className="form-control mb-2" name="rating" placeholder="Rating" value={form.rating} onChange={handleChange}/>
-          </div>
-
-          <div className="col-md-3">
-            <input className="form-control mb-2" name="cast" placeholder="Cast" value={form.cast} onChange={handleChange}/>
-          </div>
-
-          <div className="col-md-3">
-            <input className="form-control mb-2" name="ott" placeholder="OTT Platform" value={form.ott} onChange={handleChange}/>
-          </div>
-
-          <div className="col-md-3">
-            <input type="date" className="form-control mb-2" name="releaseDate" value={form.releaseDate} onChange={handleChange}/>
-          </div>
-
-          <div className="col-md-2">
-            <button className="btn btn-primary w-100" onClick={addMovie}>Add</button>
-          </div>
-        </div>
+    <div className="admin-wrap">
+      <div className="admin-header">
+        <div className="admin-title">ADMIN <span>PANEL</span></div>
+        <button className="btn-primary" onClick={() => { setEditing({}); setTab("form"); }}>+ Add Movie</button>
       </div>
-
-      {/* Movie Table */}
-      <table className="table table-bordered table-striped">
-        <thead className="table-dark">
-          <tr>
-            <th>#</th>
-            <th>Name</th>
-            <th>Rating ⭐</th>
-            <th>Cast</th>
-            <th>OTT</th>
-            <th>Release Date</th>
-          </tr>
-        </thead>
-
-        <tbody>
-          {movies.map((movie, index) => (
-            <tr key={movie.id}>
-              <td>{index + 1}</td>
-              <td>{movie.name}</td>
-              <td>{movie.rating}</td>
-              <td>{movie.cast}</td>
-              <td>{movie.ott}</td>
-              <td>{movie.releaseDate}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+      <div className="stats-row">
+        <div className="stat-card"><div className="stat-num">{movies.length}</div><div className="stat-label">TOTAL MOVIES</div></div>
+        <div className="stat-card"><div className="stat-num">{avgRating}</div><div className="stat-label">AVG RATING</div></div>
+        <div className="stat-card"><div className="stat-num">{new Set(movies.map(m => m.category)).size}</div><div className="stat-label">GENRES</div></div>
+        <div className="stat-card"><div className="stat-num">{new Set(movies.map(m => m.ott)).size}</div><div className="stat-label">OTT PLATFORMS</div></div>
+      </div>
+      <div className="admin-tabs">
+        <button className={`admin-tab ${tab === "list" ? "active" : ""}`} onClick={() => setTab("list")}>📋 Movie List</button>
+        <button className={`admin-tab ${tab === "form" ? "active" : ""}`} onClick={() => { setEditing({}); setTab("form"); }}>➕ Add / Edit</button>
+      </div>
+      {tab === "list" && (
+        <div style={{ background: "var(--card)", border: "1px solid var(--border)", borderRadius: 12, overflow: "hidden" }}>
+          <table className="admin-table">
+            <thead><tr>
+              <th>TITLE</th><th>YEAR</th><th>CATEGORY</th><th>RATING</th><th>OTT</th><th>VOTES</th><th>ACTIONS</th>
+            </tr></thead>
+            <tbody>
+              {movies.map(m => (
+                <tr key={m.id}>
+                  <td style={{ fontWeight: 600 }}>{m.title}</td>
+                  <td style={{ fontFamily: "'Space Mono'", color: "var(--muted)", fontSize: "0.85rem" }}>{m.year}</td>
+                  <td><span className="tbl-cat">{m.category}</span></td>
+                  <td><span className="tbl-rating">⭐ {m.rating}</span></td>
+                  <td><span className="tbl-ott">{m.ott}</span></td>
+                  <td style={{ color: "var(--muted)", fontFamily: "'Space Mono'", fontSize: "0.8rem" }}>{m.userRatings.length}</td>
+                  <td>
+                    <button className="edit-btn" onClick={() => { setEditing(m); setTab("form"); }}>Edit</button>
+                    <button className="del-btn" onClick={() => { if (confirm(`Delete "${m.title}"?`)) onDelete(m.id); }}>Delete</button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      )}
+      {tab === "form" && (
+        <MovieForm movie={editing} onSave={m => { onSave(m); setTab("list"); }} onCancel={() => setTab("list")} />
+      )}
     </div>
   );
 }
 
-export default App;
+
+    
+    
+
+
+export default AdminPanel

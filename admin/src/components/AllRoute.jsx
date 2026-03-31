@@ -6,7 +6,8 @@ import AddMovie from '../pages/Addmovie.jsx'
 import Listmovie from '../pages/Listmovie.jsx'
 import ListCategory from '../pages/Listcategery.jsx'
 import AddCategory from '../pages/Addcategery.jsx'
-import ManageRating from '../pages/RatingManage.jsx'
+import AdminPanel from '../pages/Home.jsx'
+import MovieForm from '../pages/API.jsx'
 
 const AllRoute = () => {
   return (
@@ -20,12 +21,9 @@ const AllRoute = () => {
   <Route element={<Addmovie/>} path='/movies/edit/'/> */}
 
  <Routes>
-  <Route element={<About/>} path='/'/>
 
-            <Route path="/Home" element={<Home/>} />
-            <Route path="/movies/edit/" element={<AddMovie/>} />
-            <Route path="/addcate" element={<AddCategory/>} />
-            <Route path="/admin/rating" element={<ManageRating/>} />
+            <Route path="/" element={<AdminPanel/>} />
+            <Route path="/movies/edit/" element={<MovieForm/>} />
          </Routes>
 
 
